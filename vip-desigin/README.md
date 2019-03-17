@@ -5,22 +5,21 @@
 单例模式（完成）	https://gper.gupaoedu.com/articleContent?id=657			singleton
 	1、熟练掌握单例模式的常见写法。
 	2、思考破坏单例模式的方式有哪些？并且归纳总结。反射、序列化、克隆
-	3、梳理内部类的执行逻辑，并画出时序图。
+	3、梳理内部类的执行逻辑，并画出时序图。 使用时才加载
 原型模式		https://gper.gupaoedu.com/articleContent?id=664			prototype
 	1、运用原型模式重构一段业务代码。
 
 代理模式		https://gper.gupaoedu.com/articleContent?id=666			proxy
-	1、仿JDK动态代理实现原理，自己手写一遍。
-	2、思考：为什么JDK动态代理中要求目标类实现的接口数量不能超过65535个？
-	3、结合自身的业务场景用代理模式进行重构。
-
+1、仿JDK动态代理实现原理，自己手写一遍。
+2、思考：为什么JDK动态代理中要求目标类实现的接口数量不能超过65535个？
+3、结合自身的业务场景用代理模式进行重构。
 委派模式、策略模式	https://gper.gupaoedu.com/articleContent?id=671		delegate、strategy
 	1、举例Spring源码中你见过的委派模式，并画出类关系图。
 	2、利用策略模式重构一段业务代码。
-
 模板模式、适配器模式	https://gper.gupaoedu.com/articleContent?id=684		templete、adapter
 	1、思考：模板模式除了继承以外，还有哪些实现方式？
 	2、使用适配模式，重构一段需要升级功能且兼容老系统的业务代码。
+
 
 装饰模式、观察者模式	https://gper.gupaoedu.com/articleContent?id=***		decorator、observer
 

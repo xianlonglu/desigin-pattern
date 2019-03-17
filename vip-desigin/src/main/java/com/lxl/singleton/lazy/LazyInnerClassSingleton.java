@@ -7,6 +7,7 @@ package com.lxl.singleton.lazy;
 //完美地屏蔽了这两个缺点
 //史上最牛B的单例模式的实现方式
 public class LazyInnerClassSingleton {
+	private boolean flag = false;
   //默认使用LazyInnerClassGeneral的时候，会先初始化内部类
   //如果没使用的话，内部类是不加载的
   private LazyInnerClassSingleton(){
@@ -14,6 +15,10 @@ public class LazyInnerClassSingleton {
       if(LazyHolder.LAZY != null){
           throw new RuntimeException("不允许创建多个实例");
       }
+	  /*if(flag){
+          throw new RuntimeException("不允许创建多个实例");
+	  }
+	  flag = true;*/
   }
   //每一个关键字都不是多余的
   //static 是为了使单例的空间共享

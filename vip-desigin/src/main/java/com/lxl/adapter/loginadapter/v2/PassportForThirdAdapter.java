@@ -50,6 +50,13 @@ public class PassportForThirdAdapter extends SiginService implements IPassportFo
         }
         return null;
     }*/
+    
+	/*
+	 * 适配器模式跟策略模式好像区别不大？在这里我要强调一下，适配器模式主要解决的是功能兼容问题，单场景适配大家可能不会和策略模式有对比。
+	 * 但多场景适配大家产生联想和混淆了。其实，大家有没有发现一个细节，我给每个适配器都加上了一个 support()方法，用来判断是否兼容，
+	 * support()方法的参数也是 Object 的，而 supoort()来自于接口。适配器的实现逻辑并不依赖于接口，我们完全可以将
+	 * LoginAdapter 接口去掉。而加上接口，只是为了代码规范。上面的代码可以说是策略模式、简单工厂模式和适配器模式的综合运用。
+	 */
     //LoginForQQAdapter等类不实现LoginAdapter接口就需改成利用反射调用方法
     private ResultMsg processLogin(String key,Class<?> clazz){
         try{
