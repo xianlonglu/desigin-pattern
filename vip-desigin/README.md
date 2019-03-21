@@ -20,8 +20,13 @@
 	1、思考：模板模式除了继承以外，还有哪些实现方式？
 	2、使用适配模式，重构一段需要升级功能且兼容老系统的业务代码。
 
+装饰模式、观察者模式	https://gper.gupaoedu.com/articleContent?id=686		decorator、observer
+1、思考并总结装饰者模式和适配器模式的根本区别。
+2、用Guava API实现GPer社区提问通知的业务场景。
 
-装饰模式、观察者模式	https://gper.gupaoedu.com/articleContent?id=***		decorator、observer
+各设计模式总结与对比	https://gper.gupaoedu.com/articleContent?id=701
+1、用一句自己的话总结学过的设计模式（要精准）。
+2、列举SpringAOP、IOC、DI应用的代码片段。
 
 
 
