@@ -1,3 +1,5 @@
+设计模式代码
+
 工厂模式（完成）	https://gper.gupaoedu.com/articleContent?id=641			factory
 	1、用UML绘制出三种工厂模式的类结构图。
 	2、深刻理解产品族和产品等级结构之间的关系。

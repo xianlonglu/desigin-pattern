@@ -5,6 +5,9 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <modules>
-  	<module>vip-desigin</module>
+  	<module>vip-desigin</module><!-- 设计模式 -->
+  	<module>gupaoedu-vip-spring-1.0</module><!-- 用300行代码手写提炼Spring的核心原理 -->
+  	<module>vip-zookeeper</module>
+  	<module>vip-distributed</module>
   </modules>
 </project>
