@@ -5,14 +5,16 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
- * 腾讯课堂搜索 咕泡学院
- * 加群获取视频：608583947
- * 风骚的Michael 老师
+ * 单播
  */
 public class SocketServer {
 
-
+    
     public static void main(String[] args) throws IOException {
+    	test2();
+    }
+
+    public static void test2() throws IOException {
         ServerSocket serverSocket=null;
 
         try{
@@ -44,6 +46,26 @@ public class SocketServer {
                 }).start();
             }
 
+        }catch (Exception e){
+
+        }finally {
+            if(serverSocket!=null){
+                serverSocket.close();
+            }
+        }
+    }
+
+	private static void test1() throws IOException {
+    	ServerSocket serverSocket=null;
+        try{
+			serverSocket = new ServerSocket(8888); // 启动一个服务
+			Socket socket = serverSocket.accept(); // 等待一个接收请求
+			// 读取数据
+			BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
+			String clientData = reader.readLine(); // 读取客户端发送过来的消息
+
+			System.out.println("服务端接收到的数据：" + clientData);
         }catch (Exception e){
 
         }finally {

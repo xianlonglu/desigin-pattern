@@ -7,13 +7,15 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 /**
- * 腾讯课堂搜索 咕泡学院
- * 加群获取视频：608583947
- * 风骚的Michael 老师
+ * 单播
  */
 public class SocketClient {
+    
+    public static void main(String[] args) throws IOException {
+    	test2();
+    }
 
-    public static void main(String[] args) {
+    public static void test2() {
         try {
             Socket socket=new Socket("localhost",8888);
 
@@ -30,6 +32,21 @@ public class SocketClient {
                 }
                 System.out.println("客户端收到数据："+serverData);
             }
+            writer.close();
+            socket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public static void test1() {
+        try {
+            Socket socket=new Socket("localhost",8888);
+
+            PrintWriter writer=new PrintWriter(socket.getOutputStream(),true);  //往服务端写数据
+
+            writer.println("Hello 菲菲");
+
             writer.close();
             socket.close();
         } catch (IOException e) {
