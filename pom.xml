@@ -9,5 +9,6 @@
   	<module>gupaoedu-vip-spring-1.0</module><!-- 用300行代码手写提炼Spring的核心原理 -->
   	<module>vip-zookeeper</module><!-- zookeeper -->
   	<module>vip-distributed</module><!-- 分布式基础相关例子 -->
+  	<module>vip-dubbo</module><!-- dubbo -->
   </modules>
 </project>
