@@ -9,6 +9,7 @@
         http://www.springframework.org/schema/context/spring-context-3.0.xsd
         http://code.alibabatech.com/schema/dubbo
         http://code.alibabatech.com/schema/dubbo/dubbo.xsd" default-autowire="byName">
+        <!-- 官网的头文件需要使用 org.apache.dubbo的jar -->
 
     <context:annotation-config/>
     <context:component-scan base-package="com.gupao.vip.mic.dubbo.order"/>
@@ -20,7 +21,7 @@
 
     <!--dubbo这个服务所要暴露的服务地址所对应的注册中心-->
     <!-- <dubbo:registry protocol="zookeeper" address="192.168.11.129:2181,192.168.11.137:2181,192.168.11.138:2181,192.168.11.139:2181"/> -->
-	<dubbo:registry address="zookeeper://192.168.122.139:2181"/>
+	<dubbo:registry address="zookeeper://192.168.122.139:2181" file="d:/dubbo-server"/>
 	
     <!--当前服务发布所依赖的协议；webserovice、Thrift、Hessain、http-->
     <!-- <dubbo:protocol name="dubbo" port="20880" host="192.168.1.106"/>  host为本机地址-->
