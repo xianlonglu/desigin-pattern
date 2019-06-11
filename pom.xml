@@ -10,5 +10,6 @@
   	<module>vip-zookeeper</module><!-- zookeeper -->
   	<module>vip-distributed</module><!-- 分布式基础相关例子 -->
   	<module>vip-dubbo</module><!-- dubbo -->
+  	<module>vip-concurrent</module><!-- 多线程/并发-->
   </modules>
 </project>
