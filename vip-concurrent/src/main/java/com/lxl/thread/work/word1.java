@@ -9,6 +9,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
+import com.sun.javafx.webkit.ThemeClientImpl;
+
 /**
  * 利用多线程解决一个实际问题。具体的问题可以结合大家以往项目中遇到过的问题进行优化。
  * 
@@ -32,8 +34,8 @@ public class word1 {
 	public static void main(String[] args) throws ExecutionException, InterruptedException {
 		long time1 = new Date().getTime();
 
-		for (int i = 0; i < 5; i++) {
-			doThing();
+		for (int i = 0; i < 10; i++) {
+			//doThing();
 		}
 		long time2 = new Date().getTime();
 
@@ -41,12 +43,13 @@ public class word1 {
 		concurrent();
 		long time3 = new Date().getTime();
 		System.out.println("耗时：" + (time3 - time2) + "ms");
+		
 	}
 
 	private static void concurrent() throws InterruptedException, ExecutionException {
 		ExecutorService executorService = Executors.newFixedThreadPool(3);
 		List<Future<Date>> list = new ArrayList<Future<Date>>();
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 10; i++) {
 			Future<Date> future = executorService.submit(new Callable<Date>() {
 				@Override
 				public Date call() throws Exception {
@@ -57,6 +60,17 @@ public class word1 {
 			});
 			list.add(future);
 		}
+		new Thread(()->{
+			while (true) {
+				try {
+					Thread.sleep(1000);
+					System.err.println("------------------------------------");
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}).start();
 		for (int i = 0; i < list.size(); i++) {
 			System.out.println(list.get(i).get());
 		}

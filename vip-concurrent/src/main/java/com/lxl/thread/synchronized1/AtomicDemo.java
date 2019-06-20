@@ -30,11 +30,11 @@ public class AtomicDemo {
 	}
 
 	public static void main(String[] args) throws InterruptedException {
-		for (int i = 0; i < 1; i++) {
+		for (int i = 0; i < 1000; i++) {
 			// new Thread(AtomicDemo::inc).start();
-			new Thread(() -> AtomicDemo.inc()).start();
+			new Thread(() -> AtomicDemo.inc1()).start();
 		}
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		System.out.println("运行结果" + count);
 	}
 }

@@ -63,7 +63,7 @@ public class CyclicBarrierDemo2 implements Runnable {
 		}
 		// 将结果输出
 		sheetBankWaterCount.put("result", result);
-		System.out.println(result);
+		System.out.println("result=" + result);
 	}
 
 	public static void main(String[] args) {

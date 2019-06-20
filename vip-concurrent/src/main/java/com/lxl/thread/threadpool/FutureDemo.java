@@ -48,6 +48,16 @@ public class FutureDemo implements Callable<String> {
 		Future future = executorService.submit(futureDemo);
 
 		System.out.println(future.get()); // 阻塞获取结果
+		
+		String a = "11";
+		FutureTask future1 = (FutureTask) executorService.submit(Executors.callable(new Runnable() {
+			@Override
+			public void run() {
+				System.err.println("333");
+			}
+		}, a));
+		System.out.println(future1.get()); // 阻塞获取结果
+		
 		executorService.shutdown();
 	}
 }

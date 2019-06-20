@@ -20,9 +20,9 @@ public class FairAndUnfairTest {
 
 	public static void main(String[] args) throws InterruptedException {
 		FairAndUnfairTest f = new FairAndUnfairTest();
-		f.testLock("非公平锁", fairLock);
+		f.testLock("公平锁", fairLock);
 		TimeUnit.SECONDS.sleep(2);
-		f.testLock("公平锁", unfairLock);
+		f.testLock("非公平锁", unfairLock);
 	}
 
 	private static Lock fairLock = new ReentrantLock2(true);
