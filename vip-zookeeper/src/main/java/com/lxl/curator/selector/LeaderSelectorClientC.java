@@ -16,20 +16,11 @@ public class LeaderSelectorClientC extends LeaderSelectorListenerAdapter impleme
 	private LeaderSelector leaderSelector; // leader选举的API
 	private CountDownLatch countDownLatch = new CountDownLatch(1);
 
-	public LeaderSelectorClientC() {
-
-	}
-
-	public LeaderSelectorClientC(String name) {
+	public LeaderSelectorClientC(CuratorFramework client, String path, String name) {
 		this.name = name;
-	}
-
-	public LeaderSelector getLeaderSelector() {
-		return leaderSelector;
-	}
-
-	public void setLeaderSelector(LeaderSelector leaderSelector) {
-		this.leaderSelector = leaderSelector;
+		this.leaderSelector = new LeaderSelector(client, path, this);
+		// 在大多数情况下，我们会希望一个 selector 放弃 leader 后还要重新参与 leader 选举
+		leaderSelector.autoRequeue(); // 自动抢
 	}
 
 	public void start() {
@@ -38,11 +29,9 @@ public class LeaderSelectorClientC extends LeaderSelectorListenerAdapter impleme
 
 	@Override
 	public void takeLeadership(CuratorFramework client) throws Exception {
-		// 如果进入当前的方法，意味着当前的进程获得了锁。获得锁以后，这个方法会被回调
-		// 这个方法执行结束之后，表示释放锁
-		System.out.println(name + "->现在是leader了");
+		// 这个方法执行结束之后，表示释放leader权限
+		System.out.println(name + " 现在是 leader 了，持续成为 leader ");
 		countDownLatch.await(); // 阻塞当前的进程防止leader丢失
-//		TimeUnit.SECONDS.sleep(5);
 	}
 
 	@Override
@@ -54,15 +43,11 @@ public class LeaderSelectorClientC extends LeaderSelectorListenerAdapter impleme
 
 	public static void main(String[] args) throws IOException {
 		CuratorFramework curatorFramework = CuratorFrameworkFactory.builder()
-				.connectString(CONNECTION_STR).sessionTimeoutMs(5000)
+				.connectString(CONNECTION_STR).sessionTimeoutMs(10000)
 				.retryPolicy(new ExponentialBackoffRetry(1000, 3)).build();
 		curatorFramework.start();
-		LeaderSelectorClientC leaderSelectorClient = new LeaderSelectorClientC("ClientC");
-		LeaderSelector leaderSelector = new LeaderSelector(curatorFramework, "/leader",
-				leaderSelectorClient);
-		leaderSelector.autoRequeue(); // 自动抢
-		leaderSelectorClient.setLeaderSelector(leaderSelector);
-		leaderSelectorClient.start(); // 开始选举
-		 System.in.read();//
+		LeaderSelectorClientA lsc = new LeaderSelectorClientA(curatorFramework, "/leader", "ClientC");
+		lsc.start(); // 开始选举
+		System.in.read();
 	}
 }
