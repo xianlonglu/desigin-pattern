@@ -10,37 +10,37 @@ import java.util.concurrent.Executors;
  * @Description: 咕泡学院，只为更好的你
  */
 public class CyclicBarrierTest {
-    public static void main(String[] args) {
-        int count = 100;
-        CyclicBarrier cyclicBarrier = new CyclicBarrier(count);
-        ExecutorService executorService = Executors.newFixedThreadPool(count);
-        for (int i = 0; i < count; i++)
-            executorService.execute(new CyclicBarrierTest().new Task(cyclicBarrier));
-        executorService.shutdown();
-        while (!executorService.isTerminated()) {
-            try {
-                Thread.sleep(10);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+	public static void main(String[] args) {
+		int count = 100;
+		// 它的作用就是会让所有线程都等待完成后才会继续下一步行动。
+		CyclicBarrier cyclicBarrier = new CyclicBarrier(count);
+		ExecutorService executorService = Executors.newFixedThreadPool(count);
+		for (int i = 0; i < count; i++)
+			executorService.execute(new CyclicBarrierTest().new Task(cyclicBarrier));
+		executorService.shutdown();
+		while (!executorService.isTerminated()) {
+			try {
+				Thread.sleep(10);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 
+	class Task implements Runnable {
+		private CyclicBarrier cyclicBarrier;
 
-    class Task implements Runnable {
-        private CyclicBarrier cyclicBarrier;
+		public Task(CyclicBarrier cyclicBarrier) {
+			this.cyclicBarrier = cyclicBarrier;
+		}
 
-        public Task(CyclicBarrier cyclicBarrier) {
-            this.cyclicBarrier = cyclicBarrier;
-        }
-
-        public void run() {
-            try {
-                cyclicBarrier.await();
-                System.out.println("做点什么" + System.currentTimeMillis());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
+		public void run() {
+			try {
+				cyclicBarrier.await();
+				System.out.println("做点什么" + System.currentTimeMillis());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
 }

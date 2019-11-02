@@ -7,9 +7,7 @@ import redis.clients.jedis.JedisMonitor;
 import java.util.List;
 
 /**
- * @Author: qingshan
- * @Date: 2019/9/28 21:36
- * @Description: 咕泡学院，只为更好的你
+ * 命令监控
  */
 public class MonitorTest {
     public static void main(String[] args) {

@@ -46,7 +46,7 @@ public class LuaTest {
         int port = Integer.valueOf(ResourceUtil.getKey("redis.port"));
         String password = ResourceUtil.getKey("redis.password");
         JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
-        JedisPool pool = new JedisPool(jedisPoolConfig, ip, port, 10000, password);
+        JedisPool pool = new JedisPool(jedisPoolConfig, ip, port, 10000);
         return pool.getResource();
     }
 
