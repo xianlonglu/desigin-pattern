@@ -14,6 +14,7 @@ public class LazyInnerClassSingleton {
     //默认使用LazyInnerClassGeneral的时候，会先初始化内部类
     //如果没使用的话，内部类是不加载的
     private LazyInnerClassSingleton(){
+    	// 防止反射破坏单例
         if(LazyHolder.LAZY != null){
             throw new RuntimeException("不允许创建多个实例");
         }

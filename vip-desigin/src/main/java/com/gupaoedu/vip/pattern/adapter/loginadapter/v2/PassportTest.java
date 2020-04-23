@@ -13,7 +13,7 @@ public class PassportTest {
 
         IPassportForThird passportForThird = new PassportForThirdAdapter();
 
-        passportForThird.loginForQQ("");
+        passportForThird.loginForQQ("123");
 
 
     }

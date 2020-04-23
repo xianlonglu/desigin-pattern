@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gupaoedu.dao.OrderDao">
+
+    <insert id="addOne" useGeneratedKeys="true" keyProperty="orderId" parameterType="user">
+        insert into order(
+        <if test="orderId != null">
+            order_id,
+        </if>
+        user_id,create_time,total_price) values(
+        <if test="orderId != null">
+            #{orderId},
+        </if>
+        #{userId},#{createTime},#{totalPrice})
+    </insert>
+
+    <select id="selectOne" resultType="com.gupaoedu.entity.Order">
+        select * from order where order_id=#{orderId} and user_id=#{userId}
+    </select>
+
+    <select id="getOrderByUserId" resultType="com.gupaoedu.entity.Order">
+      select * from order a inner join user b on a.user_id = b.user_id where b.user_id=#{id} <!-- order by order_id asc limit 2 -->
+    </select>
+
+</mapper>

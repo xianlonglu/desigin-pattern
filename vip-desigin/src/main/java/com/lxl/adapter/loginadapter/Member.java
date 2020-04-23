@@ -38,4 +38,9 @@ public class Member {
     public void setInfo(String info) {
         this.info = info;
     }
+
+	@Override
+	public String toString() {
+		return "Member [username=" + username + ", password=" + password + ", mid=" + mid + ", info=" + info + "]";
+	}
 }

@@ -67,7 +67,7 @@ public class PassportForThirdAdapter extends SiginService implements IPassportFo
             Method method = clazz.getMethod("support", new Class[]{Object.class});
             if((boolean) method.invoke(adapter, adapter)){
                 Method method1 = clazz.getMethod("login", new Class[]{String.class, Object.class});
-                Object obj = method1.invoke(adapter,null,null);
+                Object obj = method1.invoke(adapter,key,adapter);
             	return (ResultMsg)obj;
             }
         }catch (Exception e){

@@ -5,6 +5,8 @@ package com.gupaoedu.vip.pattern.singleton.register;
  */
 //常量中去使用，常量不就是用来大家都能够共用吗？
 //通常在通用API中使用
+
+//不能用反射来创建枚举类型。
 public enum EnumSingleton {
     INSTANCE;
     private Object data;

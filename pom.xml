@@ -11,10 +11,12 @@
   	<module>vip-distributed</module><!-- 分布式基础相关例子 -->
   	<module>vip-mq</module><!-- 消息队列相关例子 -->
   	<module>vip-dubbo</module><!-- dubbo -->
+  	<module>vip-jvm</module><!-- jvm -->
   	<module>vip-nacos</module><!-- alibaba的nacos（动态服务发现、服务配置、服务元数据及流量管理）相当于zookeeper -->
   	<module>vip-netty-io</module><!-- netty-io -->
   	<module>vip-redis</module><!-- redis -->
   	<module>vip-rpc</module><!-- 手写rpc -->
+  	<module>vip-Sharding-JDBC</module><!-- 分库分表 -->
   	<module>vip-zookeeper</module><!-- zookeeper -->
   </modules>
 </project>

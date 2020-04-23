@@ -5,6 +5,7 @@ package com.gupaoedu.vip.pattern.singleton.lazy;
  */
 
 public class LazyDoubleCheckSingleton {
+	// volatile防止指令重排
     private volatile static LazyDoubleCheckSingleton lazy = null;
 
     private LazyDoubleCheckSingleton(){}
